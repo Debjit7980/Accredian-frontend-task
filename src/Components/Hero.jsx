@@ -30,9 +30,9 @@ function Hero() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userName);
+        //console.log(userName);
         try {
-            const response = await fetch('https://accredian-frontend-task-omega-eight.vercel.app/referral', {
+            const response = await fetch('https://accredian-backend-task-o1fo.onrender.com/referral', {
                 method: 'POST',
                 body: JSON.stringify({ userName, userEmail, course, refName, refEmail }),
                 headers: {
