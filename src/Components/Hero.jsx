@@ -33,7 +33,7 @@ function Hero() {
         console.log('Sending data:', referralData);
 
         try {
-            const response = await fetch('https://accredian-backend-u3ng.onrender.com/referral', {
+            const response = await fetch('https://accredian-backend-qz7n.onrender.com/referral', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
