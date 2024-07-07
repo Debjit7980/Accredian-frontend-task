@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';  // Import axios
 import hero from './../assets/Images/hero.png';
 import { IoMdClose } from "react-icons/io";
 
@@ -23,18 +22,31 @@ function Hero() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const referralData = {
+            userName,
+            userEmail,
+            course,
+            refName,
+            refEmail
+        };
+
+        console.log('Sending data:', referralData);
+
         try {
-            const response = await axios.post('https://accredian-backend-task-o1fo.onrender.com/referral', {
-                userName,
-                userEmail,
-                course,
-                refName,
-                refEmail
+            const response = await fetch('https://accredian-backend-u3ng.onrender.com/referral', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(referralData)
             });
-            console.log(response.data);
-            if (response.status === 201) {
-                console.log('Response from server:', response.data);
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Response from server:', responseData);
             } else {
+                const responseData = await response.json();
+                console.log('Response from server:', responseData);
                 console.error('Error is:', response.status);
             }
         } catch (error) {
@@ -69,7 +81,7 @@ function Hero() {
                         </button></h2>
 
                         <div className='overflow-auto max-h-[75vh] custom-scrollbar'>
-                            <form className='pl-6 pr-6 pb-6'>
+                            <form className='pl-6 pr-6 pb-6' onSubmit={handleSubmit}>
                                 <span className='text-[20px] font-[500]'>Referrer Info</span>
                                 <div className='mb-4 mt-2'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='userName'>
@@ -117,7 +129,7 @@ function Hero() {
                                 </div>
 
                                 <div className='flex items-center justify-between'>
-                                    <button className='bg-[#1A73E8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' type='submit' onClick={handleSubmit}>
+                                    <button className='bg-[#1A73E8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' type='submit'>
                                         Submit
                                     </button>
                                 </div>
