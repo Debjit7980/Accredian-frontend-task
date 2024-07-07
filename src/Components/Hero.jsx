@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';  // Import axios
 import hero from './../assets/Images/hero.png';
 import { IoMdClose } from "react-icons/io";
 
 function Hero() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [userName, setUserName]=useState("");
-    const [userEmail, setUserEmail]=useState("");
-    const [course, setCourse]= useState("");
-    const [refName,setRefName]=useState("");
-    const [refEmail,setRefEmail]=useState("");
+    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [course, setCourse] = useState("");
+    const [refName, setRefName] = useState("");
+    const [refEmail, setRefEmail] = useState("");
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -20,37 +21,26 @@ function Hero() {
         document.body.style.overflow = 'auto'; // Enable scrolling
     };
 
-    // const handleChange = (e) => {
-    //     const { id, value } = e.target;
-    //     setFormData(prevState => ({
-    //         ...prevState,
-    //         [id]: value
-    //     }));
-    // };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        //console.log(userName);
         try {
-            const response = await fetch('https://accredian-backend-task-o1fo.onrender.com/referral', {
-                method: 'POST',
-                body: JSON.stringify({ userName, userEmail, course, refName, refEmail }),
-                headers: {
-                    'Content-Type': 'application/json', // Specify JSON content type
-                }
-            })
-            const result = await response.json();
-            console.log(result);
-            if (result.status==201) {
-                console.log('Response from server:', result.data);
+            const response = await axios.post('https://accredian-backend-task-o1fo.onrender.com/referral', {
+                userName,
+                userEmail,
+                course,
+                refName,
+                refEmail
+            });
+            console.log(response.data);
+            if (response.status === 201) {
+                console.log('Response from server:', response.data);
             } else {
-                console.error('Error is:', result.status);
+                console.error('Error is:', response.status);
             }
         } catch (error) {
             console.error('An error occurred:', error);
         }
     };
-    
 
     return (
         <div className='w-[100%] pt-[40px] relative mb-10'>
@@ -79,13 +69,13 @@ function Hero() {
                         </button></h2>
 
                         <div className='overflow-auto max-h-[75vh] custom-scrollbar'>
-                            <form className='pl-6 pr-6 pb-6' >
+                            <form className='pl-6 pr-6 pb-6'>
                                 <span className='text-[20px] font-[500]'>Referrer Info</span>
                                 <div className='mb-4 mt-2'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='userName'>
                                         Name
                                     </label>
-                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userName' type='text' placeholder='Your Name' value={userName}  onChange={(e) => { setUserName(e.target.value) }}/>
+                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userName' type='text' placeholder='Your Name' value={userName} onChange={(e) => { setUserName(e.target.value) }}/>
                                 </div>
                                 <div className='mb-4'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='userEmail'>
