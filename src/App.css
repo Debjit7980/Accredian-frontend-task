@@ -1,0 +1,34 @@
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 20px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: white;
+    display: none;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #d3d1d1;
+    border-radius: 32px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .custom-select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #1A73E8 transparent transparent transparent;
+  }
+  
