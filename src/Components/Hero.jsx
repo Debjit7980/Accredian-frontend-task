@@ -32,7 +32,7 @@ function Hero() {
         e.preventDefault();
         console.log(userName);
         try {
-            const response = await fetch('http://localhost:3000/referral', {
+            const response = await fetch('https://accredian-frontend-task-omega-eight.vercel.app/referral', {
                 method: 'POST',
                 body: JSON.stringify({ userName, userEmail, course, refName, refEmail }),
                 headers: {
