@@ -87,20 +87,20 @@ function Hero() {
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='userName'>
                                         Name
                                     </label>
-                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userName' type='text' placeholder='Your Name' value={userName} onChange={(e) => { setUserName(e.target.value) }}/>
+                                    <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userName' type='text' placeholder='Your Name' value={userName} onChange={(e) => { setUserName(e.target.value) }}/>
                                 </div>
                                 <div className='mb-4'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='userEmail'>
                                         Email
                                     </label>
-                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userEmail' type='email' placeholder='Your Email' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} />
+                                    <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='userEmail' type='email' placeholder='Your Email' value={userEmail} onChange={(e) => { setUserEmail(e.target.value) }} />
                                 </div>
                                 <div className='mb-6'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='course'>
                                         Refer Course
                                     </label>
                                     <div className='relative'>
-                                        <select className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50' id='course' value={course} onChange={(e) => { setCourse(e.target.value) }}>
+                                        <select required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white bg-opacity-50' id='course' value={course} onChange={(e) => { setCourse(e.target.value) }}>
                                             <option value=''>Select a course</option>
                                             <option value='Data Science'>Data Science</option>
                                             <option value='Digital Transformation'>Digital Transformation</option>
@@ -119,13 +119,13 @@ function Hero() {
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='refName'>
                                         Name
                                     </label>
-                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='refName' type='text' placeholder="Referee's Name" value={refName} onChange={(e) => { setRefName(e.target.value) }} />
+                                    <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='refName' type='text' placeholder="Referee's Name" value={refName} onChange={(e) => { setRefName(e.target.value) }} />
                                 </div>
                                 <div className='mb-6'>
                                     <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='refEmail'>
                                         Email
                                     </label>
-                                    <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='refEmail' type='email' placeholder="Referee's email" value={refEmail} onChange={(e) => { setRefEmail(e.target.value) }} />
+                                    <input required className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' id='refEmail' type='email' placeholder="Referee's email" value={refEmail} onChange={(e) => { setRefEmail(e.target.value) }} />
                                 </div>
 
                                 <div className='flex items-center justify-between'>
