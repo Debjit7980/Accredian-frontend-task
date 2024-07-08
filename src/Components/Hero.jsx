@@ -44,9 +44,14 @@ function Hero() {
             if (response.ok) {
                 const responseData = await response.json();
                 console.log('Response from server:', responseData);
+                setUserName("");
+                setUserEmail("");
+                setCourse("");
+                setRefName("");
+                setRefEmail("");
+                closeModal(); //
+                
             } else {
-                const responseData = await response.json();
-                console.log('Response from server:', responseData);
                 console.error('Error is:', response.status);
             }
         } catch (error) {
